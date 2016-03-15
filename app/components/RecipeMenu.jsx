@@ -10,7 +10,7 @@ class RecipeMenu extends React.Component {
   render() {
     let recipeList = this.props.recipes.map((recipe, index) => {
       return (
-        <li key={index}>{recipe.title}</li>
+        <li key={index} onClick={this.props.handleClick.bind(null, index)}>{recipe.title}</li>
       )
     })
 

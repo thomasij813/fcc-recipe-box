@@ -33,7 +33,6 @@ class RecipeCreationFormContainer extends React.Component {
 
   onFormSubmit(e) {
     e.preventDefault()
-    console.log('onFormSubmit called!')
     let newRecipe = this.state.recipe;
     this.props.addRecipe(newRecipe);
   }
