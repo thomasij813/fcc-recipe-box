@@ -1,15 +1,11 @@
-import React from 'react';
+import React from 'react'
 import {render} from 'react-dom'
 
-require('./public/sass/style.scss')
+import MainContainer from './containers/MainContainer'
 
-class HelloWorld extends React.Component {
-  render() {
-    return <h1>Hello World!</h1>
-  }
-}
+require('./public/stylesheets/style.scss')
 
 render(
-  <HelloWorld />,
+  <MainContainer />,
   document.getElementById('app')
 )

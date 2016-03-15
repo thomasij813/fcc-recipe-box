@@ -18,11 +18,14 @@ module.exports = {
     path: __dirname + '/dist',
     filename: 'index_bundle.js'
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
     loaders: [
       {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'},
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         exclude: /node_modules/,
         loader: ExtractTextPlugin.extract('style-loader', ['css-loader', 'postcss-loader', 'sass-loader'])
       },
