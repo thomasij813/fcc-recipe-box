@@ -9,6 +9,7 @@ class RecipeCreationFormContainer extends React.Component {
       recipe: {
         title: '',
         text: '',
+        ingredients: ['']
       }
     }
   }
@@ -31,6 +32,22 @@ class RecipeCreationFormContainer extends React.Component {
     })
   }
 
+  onAddIngredient() {
+    let newRecipe = Object.assign({}, this.state.recipe, {ingredients: [...this.state.recipe.ingredients, '']})
+    this.setState({
+      recipe: newRecipe
+    })
+  }
+
+  onIngredientChange(index, value) {
+    let ingredients = this.state.recipe.ingredients
+    ingredients[index] = value;
+    let newRecipe = Object.assign({}, this.state.recipe, {ingredients: ingredients})
+    this.setState({
+      recipe: newRecipe
+    })
+  }
+
   onFormSubmit(e) {
     e.preventDefault()
     let newRecipe = this.state.recipe;
@@ -41,7 +58,10 @@ class RecipeCreationFormContainer extends React.Component {
     return <RecipeCreationForm
       onFormSubmit={this.onFormSubmit.bind(this)}
       onRecipeTitleChange={this.onRecipeTitleChange.bind(this)}
-      onRecipeTextChange={this.onRecipeTextChange.bind(this)}/>
+      onRecipeTextChange={this.onRecipeTextChange.bind(this)}
+      onAddIngredient={this.onAddIngredient.bind(this)}
+      onIngredientChange={this.onIngredientChange.bind(this)}
+      recipe={this.state.recipe} />
   }
 }
 

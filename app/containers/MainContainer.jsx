@@ -10,10 +10,10 @@ class MainContainer extends React.Component {
     super()
     this.state ={
       recipes: [
-        {title: 'Recipe 1', text: 'This is Recipe 1'},
-        {title: 'Recipe 2', text: 'This is Recipe 2'},
-        {title: 'Recipe 3', text: 'This is Recipe 3'},
-        {title: 'Recipe 4', text: 'This is Recipe 4'}
+        {title: 'Recipe 1', text: 'This is Recipe 1', ingredients: [1, 2, 3]},
+        {title: 'Recipe 2', text: 'This is Recipe 2', ingredients: [1, 2, 3]},
+        {title: 'Recipe 3', text: 'This is Recipe 3', ingredients: [1, 2, 3]},
+        {title: 'Recipe 4', text: 'This is Recipe 4', ingredients: [1, 2, 3]}
       ],
       view: 'recipe',
       activeRecipe: 0
@@ -26,7 +26,8 @@ class MainContainer extends React.Component {
 
   setActiveRecipe(index) {
     this.setState({
-      activeRecipe: index
+      activeRecipe: index,
+      view: 'recipe'
     })
   }
 
