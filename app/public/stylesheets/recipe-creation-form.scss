@@ -12,17 +12,27 @@ form > textarea {
   min-height: 300px;
 }
 
-form > input {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.ingredient-list {
-  margin: 10px 0;
-}
-
 .ingredient {
   width: 100%;
   margin: 10px 0;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.ingredient > input {
+  flex-grow: 1;
+  width: 100%;
+  min-width: 100px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.ingredient > a {
+  margin-left: 10px;
+}
+
+.ingredient-list {
+  margin: 10px 0;
 }

@@ -43,6 +43,18 @@ class MainContainer extends React.Component {
     this.setView('recipe')
   }
 
+  deleteRecipe(index) {
+    let newRecipes = [
+      ...this.state.recipes.slice(0, index),
+      ...this.state.recipes.slice(index + 1)
+    ]
+    console.log(index)
+    this.setState({
+      recipes: newRecipes
+    })
+    this.setActiveRecipe(0)
+  }
+
   setView(view) {
     this.setState({
       view: view
@@ -59,7 +71,10 @@ class MainContainer extends React.Component {
         <RecipeViewContainer
           recipe={this.getActiveRecipe()}
           addRecipe={this.addRecipe.bind(this)}
-          view={this.state.view} />
+          deleteRecipe={this.deleteRecipe.bind(this)}
+          view={this.state.view}
+          setView={this.setView.bind(this)}
+          recipeIndex={this.state.activeRecipe}/>
       </div>
     )
   }

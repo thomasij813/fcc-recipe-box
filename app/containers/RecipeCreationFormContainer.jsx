@@ -5,19 +5,15 @@ import RecipeCreationForm from '../components/RecipeCreationForm'
 class RecipeCreationFormContainer extends React.Component {
   constructor(props) {
     super(props)
-    if (props.recipe) {
-      this.state ={
-        recipe: props.recipe
-      }
-    } else {
-      this.state = {
-        recipe: {
-          title: '',
-          text: '',
-          ingredients: ['']
-        }
-      }
+    this.state ={
+      recipe: props.recipe,
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      recipe: nextProps.recipe
+    })
   }
 
   onRecipeTitleChange(e) {
@@ -45,6 +41,17 @@ class RecipeCreationFormContainer extends React.Component {
     })
   }
 
+  onDeleteIngredient(ingredientIndex) {
+    let newIngredients = [
+      ...this.state.recipe.ingredients.slice(0, ingredientIndex),
+      ...this.state.recipe.ingredients.slice(ingredientIndex + 1)
+    ]
+    let newRecipe = Object.assign({}, this.state.recipe, {ingredients: newIngredients})
+    this.setState({
+      recipe: newRecipe
+    })
+  }
+
   onIngredientChange(index, value) {
     let ingredients = this.state.recipe.ingredients
     ingredients[index] = value;
@@ -57,7 +64,7 @@ class RecipeCreationFormContainer extends React.Component {
   onFormSubmit(e) {
     e.preventDefault()
     let newRecipe = this.state.recipe;
-    this.props.addRecipe(newRecipe);
+    this.props.addRecipe(newRecipe, this.props.recipeIndex);
   }
 
   render() {
@@ -66,6 +73,7 @@ class RecipeCreationFormContainer extends React.Component {
       onRecipeTitleChange={this.onRecipeTitleChange.bind(this)}
       onRecipeTextChange={this.onRecipeTextChange.bind(this)}
       onAddIngredient={this.onAddIngredient.bind(this)}
+      onDeleteIngredient={this.onDeleteIngredient.bind(this)}
       onIngredientChange={this.onIngredientChange.bind(this)}
       recipe={this.state.recipe} />
   }

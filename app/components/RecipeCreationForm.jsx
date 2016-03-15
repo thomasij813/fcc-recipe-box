@@ -9,7 +9,13 @@ class IngredientList extends React.Component {
     this.props.onAddIngredient()
   }
 
-  handleInputClick(e) {
+  handleDeleteClick(e) {
+    e.preventDefault();
+    let index = parseInt(e.target.attributes.id.value)
+    this.props.onDeleteIngredient(index);
+  }
+
+  handleInputChange(e) {
     let index = parseInt(e.target.attributes.id.value)
     let value = e.target.value;
     this.props.onIngredientChange(index, value);
@@ -17,12 +23,17 @@ class IngredientList extends React.Component {
 
   render() {
     var inputList = this.props.ingredients.map((ingredient, index) => {
-      return <input
-        id={index}
-        key={index}
-        type="text"
-        className='ingredient'
-        onChange={this.handleInputClick.bind(this)}/>
+      return (
+        <div key={index} className='ingredient'>
+          <input
+            id={index}
+            type="text"
+            className='ingredient'
+            onChange={this.handleInputChange.bind(this)}
+            value={ingredient}/>
+          <a href="#" id={index} onClick={this.handleDeleteClick.bind(this)}>Delete</a>
+        </div>
+    )
     })
 
     return (
@@ -40,13 +51,14 @@ class RecipeCreationForm extends React.Component {
     return (
       <form onSubmit={this.props.onFormSubmit}>
         <h3>Recipe Name</h3>
-        <input type="text" placeholder="Title" onChange={this.props.onRecipeTitleChange}/>
+        <input type="text" placeholder="Title" onChange={this.props.onRecipeTitleChange} value={this.props.recipe.title}/>
         <IngredientList
           ingredients={this.props.recipe.ingredients}
           onAddIngredient={this.props.onAddIngredient}
+          onDeleteIngredient={this.props.onDeleteIngredient}
           onIngredientChange={this.props.onIngredientChange}/>
         <h3>Instructions</h3>
-        <textarea placeholder="Recipe Text" onChange={this.props.onRecipeTextChange}/>
+        <textarea placeholder="Recipe Text" value={this.props.recipe.text} onChange={this.props.onRecipeTextChange}/>
         <button type="submit">Add Recipe</button>
       </form>
     )

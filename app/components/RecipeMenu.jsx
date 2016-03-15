@@ -3,6 +3,7 @@ import React from 'react'
 require('../public/stylesheets/recipe-menu.scss')
 
 class RecipeMenu extends React.Component {
+
   render() {
     let recipeList = this.props.recipes.map((recipe, index) => {
       return (
