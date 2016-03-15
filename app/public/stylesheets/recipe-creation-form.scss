@@ -1,0 +1,11 @@
+form {
+  width: 100%;
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+form > textarea {
+  flex-grow: 1;
+  margin: 10px 0;
+}
