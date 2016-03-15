@@ -3,10 +3,6 @@ import React from 'react'
 require('../public/stylesheets/recipe-menu.scss')
 
 class RecipeMenu extends React.Component {
-  handleClick() {
-    this.props.setView('form');
-  }
-
   render() {
     let recipeList = this.props.recipes.map((recipe, index) => {
       return (
@@ -20,7 +16,7 @@ class RecipeMenu extends React.Component {
         <ul>
           {recipeList}
         </ul>
-        <button onClick={this.handleClick.bind(this)}>New Recipe</button>
+        <button onClick={this.props.setView.bind(null, 'form')}>New Recipe</button>
       </div>
     )
   }

@@ -5,15 +5,16 @@ import RecipeMenu from '../components/RecipeMenu'
 require('../public/stylesheets/recipe-menu.scss')
 
 class RecipeMenuContainer extends React.Component {
-  handleClick(index) {
-    this.props.setActiveRecipe(index);
+  handleRecipeClick(index) {
+    this.props.setActiveRecipe(index)
+    this.props.setView('recipe')
   }
   render() {
     return (
       <RecipeMenu
         recipes={this.props.recipes}
         setView={this.props.setView}
-        handleClick={this.handleClick.bind(this)} />
+        handleClick={this.handleRecipeClick.bind(this)} />
     )
   }
 }

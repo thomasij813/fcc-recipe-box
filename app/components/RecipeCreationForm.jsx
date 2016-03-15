@@ -37,7 +37,6 @@ class IngredientList extends React.Component {
 
 class RecipeCreationForm extends React.Component {
   render() {
-    console.log(this.props)
     return (
       <form onSubmit={this.props.onFormSubmit}>
         <h3>Recipe Name</h3>

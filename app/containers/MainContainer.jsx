@@ -26,20 +26,21 @@ class MainContainer extends React.Component {
 
   setActiveRecipe(index) {
     this.setState({
-      activeRecipe: index,
-      view: 'recipe'
+      activeRecipe: index
     })
   }
 
-  addRecipe(recipe) {
-    recipe.active = true;
-    let recipes = this.state.recipes.map((recipe) => {
-      return Object.assign({}, recipe, {active: false})
-    })
+  addRecipe(recipe, index = this.state.recipes.length) {
+    let newRecipes = [
+      ...this.state.recipes.slice(0, index),
+      recipe,
+      ...this.state.recipes.slice(index + 1)
+    ]
     this.setState({
-      recipes: [...recipes, recipe],
-      view: 'recipe'
+      recipes: newRecipes,
     })
+    this.setActiveRecipe(index)
+    this.setView('recipe')
   }
 
   setView(view) {

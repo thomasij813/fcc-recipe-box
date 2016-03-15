@@ -5,11 +5,17 @@ import RecipeCreationForm from '../components/RecipeCreationForm'
 class RecipeCreationFormContainer extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      recipe: {
-        title: '',
-        text: '',
-        ingredients: ['']
+    if (props.recipe) {
+      this.state ={
+        recipe: props.recipe
+      }
+    } else {
+      this.state = {
+        recipe: {
+          title: '',
+          text: '',
+          ingredients: ['']
+        }
       }
     }
   }
