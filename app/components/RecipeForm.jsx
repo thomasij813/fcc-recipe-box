@@ -1,6 +1,6 @@
 import React from 'react'
 
-require('../public/stylesheets/recipe-creation-form.scss')
+require('../public/stylesheets/recipe-form.scss')
 
 class IngredientList extends React.Component {
 
@@ -46,7 +46,7 @@ class IngredientList extends React.Component {
   }
 }
 
-class RecipeCreationForm extends React.Component {
+class RecipeForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.props.onFormSubmit}>
@@ -65,4 +65,4 @@ class RecipeCreationForm extends React.Component {
   }
 }
 
-export default RecipeCreationForm
+export default RecipeForm

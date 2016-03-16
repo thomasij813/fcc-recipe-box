@@ -27,20 +27,4 @@ function RecipeView(props) {
   }
 }
 
-// class RecipeView extends React.Component {
-//   render() {
-//     if (this.props.recipe) {
-//       return (
-//         <div style={style}>
-//           <p>{this.props.recipe.text}</p>
-//           <button onClick={this.props.handleEditClick}>Edit</button>
-//           <button onClick={this.props.handleDeleteClick}>Delete</button>
-//         </div>
-//       )
-//     } else {
-//       return <NoRecipeMessage />
-//     }
-//   }
-// }
-
 export default RecipeView

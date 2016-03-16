@@ -1,8 +1,8 @@
 import React from 'react';
 
-import RecipeCreationForm from '../components/RecipeCreationForm'
+import RecipeForm from '../components/RecipeForm'
 
-class RecipeCreationFormContainer extends React.Component {
+class RecipeFormContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state ={
@@ -68,7 +68,7 @@ class RecipeCreationFormContainer extends React.Component {
   }
 
   render() {
-    return <RecipeCreationForm
+    return <RecipeForm
       onFormSubmit={this.onFormSubmit.bind(this)}
       onRecipeTitleChange={this.onRecipeTitleChange.bind(this)}
       onRecipeTextChange={this.onRecipeTextChange.bind(this)}
@@ -79,4 +79,4 @@ class RecipeCreationFormContainer extends React.Component {
   }
 }
 
-export default RecipeCreationFormContainer
+export default RecipeFormContainer

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import RecipeView from '../components/RecipeView'
-import RecipeCreationFormContainer from './RecipeCreationFormContainer'
+import RecipeFormContainer from './RecipeFormContainer'
 
 class RecipeViewContainer extends React.Component {
   handleDelete(e) {
@@ -23,14 +23,14 @@ class RecipeViewContainer extends React.Component {
     }
 
     if (this.props.view === 'edit') {
-      return <RecipeCreationFormContainer
+      return <RecipeFormContainer
         addRecipe={this.props.addRecipe}
         recipe={this.props.recipe}
         recipeIndex={this.props.recipeIndex}/>
     }
 
     if (this.props.view === 'form') {
-      return <RecipeCreationFormContainer
+      return <RecipeFormContainer
         addRecipe={this.props.addRecipe}
         recipe={{title: '', text: '', ingredients: ['']}}/>
     }
