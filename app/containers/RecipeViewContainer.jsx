@@ -32,7 +32,7 @@ class RecipeViewContainer extends React.Component {
     if (this.props.view === 'form') {
       return <RecipeFormContainer
         addRecipe={this.props.addRecipe}
-        recipe={{title: '', text: '', ingredients: ['']}}/>
+        recipe={{title: 'Your Recipe', text: 'Your recipe\'s instructions', ingredients: ['']}}/>
     }
 
   }

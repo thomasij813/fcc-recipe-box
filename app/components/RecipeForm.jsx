@@ -3,26 +3,47 @@ import React from 'react'
 require('../public/stylesheets/recipe-form.scss')
 
 class IngredientList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      ingredients: this.props.ingredients
+    }
+  }
 
   handleAddClick(e) {
     e.preventDefault();
-    this.props.onAddIngredient()
+    this.setState({
+      ingredients: [...this.state.ingredients, '']
+    })
   }
 
   handleDeleteClick(e) {
     e.preventDefault();
     let index = parseInt(e.target.attributes.id.value)
-    this.props.onDeleteIngredient(index);
+    let newIngredients = [
+      ...this.state.ingredients.slice(0, index),
+      ...this.state.ingredients.slice(index + 1)
+    ]
+    this.setState({
+      ingredients: newIngredients
+    })
   }
 
   handleInputChange(e) {
     let index = parseInt(e.target.attributes.id.value)
     let value = e.target.value;
-    this.props.onIngredientChange(index, value);
+    let newIngredients = [
+      ...this.state.ingredients.slice(0, index),
+      value,
+      ...this.state.ingredients.slice(index + 1)
+    ]
+    this.setState({
+      ingredients: newIngredients
+    })
   }
 
   render() {
-    var inputList = this.props.ingredients.map((ingredient, index) => {
+    var inputList = this.state.ingredients.map((ingredient, index) => {
       return (
         <div key={index} className='ingredient'>
           <input
@@ -30,14 +51,15 @@ class IngredientList extends React.Component {
             type="text"
             className='ingredient'
             onChange={this.handleInputChange.bind(this)}
-            value={ingredient}/>
+            value={ingredient}
+            name={'ingredient'}/>
           <a href="#" id={index} onClick={this.handleDeleteClick.bind(this)}>Delete</a>
         </div>
     )
     })
 
     return (
-      <div className='ingredient-list'>
+      <div className='ingredient-list' name='ingredient-list'>
         <h3>Ingredients</h3>
         {inputList}
         <a href='#' onClick={this.handleAddClick.bind(this)}>Add Ingredient</a>
@@ -51,14 +73,10 @@ class RecipeForm extends React.Component {
     return (
       <form onSubmit={this.props.onFormSubmit}>
         <h3>Recipe Name</h3>
-        <input type="text" placeholder="Title" onChange={this.props.onRecipeTitleChange} value={this.props.recipe.title}/>
-        <IngredientList
-          ingredients={this.props.recipe.ingredients}
-          onAddIngredient={this.props.onAddIngredient}
-          onDeleteIngredient={this.props.onDeleteIngredient}
-          onIngredientChange={this.props.onIngredientChange}/>
+        <input name="title" type="text" placeholder="Title" defaultValue={this.props.recipe.title}/>
+        <IngredientList ingredients={this.props.recipe.ingredients}/>
         <h3>Instructions</h3>
-        <textarea placeholder="Recipe Text" value={this.props.recipe.text} onChange={this.props.onRecipeTextChange}/>
+        <textarea name="text" placeholder="Recipe Text" defaultValue={this.props.recipe.text} />
         <button type="submit">Add Recipe</button>
       </form>
     )
