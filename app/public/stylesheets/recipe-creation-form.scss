@@ -2,20 +2,19 @@ form {
   width: 100%;
   max-height: 100vh;
   overflow-y: scroll;
-  margin: 0 25px;
+  padding: 0 25px;
+  box-sizing: border-box;
 }
 
 form > textarea {
   margin: 10px 0;
   width: 100%;
-  box-sizing: border-box;
   min-height: 300px;
 }
 
 .ingredient {
   width: 100%;
   margin: 10px 0;
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -25,7 +24,6 @@ form > textarea {
   flex-grow: 1;
   width: 100%;
   min-width: 100px;
-  box-sizing: border-box;
   margin: 0;
 }
 
