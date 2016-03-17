@@ -13,11 +13,11 @@ class RecipeMenu extends React.Component {
 
     return (
       <div className='recipe-menu'>
-        <h1>Recipes</h1>
+        <h1>Recipe Box</h1>
         <ul>
           {recipeList}
         </ul>
-        <button onClick={this.props.setView.bind(null, 'form')}>New Recipe</button>
+        <a href='#' onClick={this.props.setView.bind(null, 'form')}>New Recipe</a>
       </div>
     )
   }
