@@ -10,12 +10,18 @@ require('../public/stylesheets/main-container.scss')
 class MainContainer extends React.Component {
   constructor() {
     super()
-    this.state ={
-      recipes: recipes,
+    let localRecipes = JSON.parse(localStorage.getItem('recipes'))
+    this.state = {
+      recipes: localRecipes || recipes,
       view: 'recipe',
       activeRecipe: 0
     }
   }
+
+   componentDidUpdate() {
+     let recipes = JSON.stringify(this.state.recipes.slice())
+     localStorage.setItem('recipes', recipes)
+   }
 
   getActiveRecipe() {
     return this.state.recipes[this.state.activeRecipe]
@@ -58,7 +64,7 @@ class MainContainer extends React.Component {
     })
   }
 
-  render() {
+  render() {  
     return (
       <div className='main-container'>
         <RecipeMenuContainer
