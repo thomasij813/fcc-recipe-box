@@ -16,7 +16,7 @@ class RecipeFormContainer extends React.Component {
        return ingredient !== ''
      })
     let newRecipe = {
-      title: e.target.title.value,
+      title: e.target.title.value || 'Unnamed Recipe',
       text: e.target.text.value,
       ingredients: ingredients
     }
