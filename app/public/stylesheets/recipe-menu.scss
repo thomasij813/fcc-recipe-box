@@ -1,6 +1,6 @@
-$main-color: #2B1F31;
+@import './utils/variables';
+
 $font-color: white;
-$hover-color: #03B5AA;
 
 .recipe-menu {
   width: 25%;
@@ -9,7 +9,7 @@ $hover-color: #03B5AA;
   flex-direction: column;
   align-items: center;
   color: $font-color;
-  background: linear-gradient(to bottom, $main-color, lighten($main-color, 10%));
+  background: linear-gradient(to bottom, $dark-purple, lighten($dark-purple, 10%));
   overflow-y: scroll;
 }
 
@@ -31,20 +31,20 @@ $hover-color: #03B5AA;
   width: 100%;
   text-align: center;
   padding: 10px 0;
-  border-top: 1px solid lighten($main-color, 15%);
+  border-top: 1px solid lighten($dark-purple, 15%);
   cursor: pointer;
   &:last-of-type {
-    border-bottom: 1px solid lighten($main-color, 15%);
+    border-bottom: 1px solid lighten($dark-purple, 15%);
   }
   &:last-of-type:hover {
-    border-bottom: 1px solid $hover-color;
+    border-bottom: 1px solid $teal;
   }
   &:hover {
-    background: $hover-color;
-    border-top: 1px solid $hover-color;
+    background: $teal;
+    border-top: 1px solid $teal;
   }
   &:hover + li{
-    border-top: 1px solid $hover-color;
+    border-top: 1px solid $teal;
   }
 }
 
@@ -56,11 +56,11 @@ $hover-color: #03B5AA;
   text-align: center;
   margin: 20px 0;
   padding: 10px 0;
-  border-top: 1px solid lighten($main-color, 15%);
-  border-bottom: 1px solid lighten($main-color, 15%);
+  border-top: 1px solid lighten($dark-purple, 15%);
+  border-bottom: 1px solid lighten($dark-purple, 15%);
   flex-shrink: 0;
   &:hover {
-    background: $hover-color;
-    border: 1px solid $hover-color;
+    background: $teal;
+    border: 1px solid $teal;
   }
 }

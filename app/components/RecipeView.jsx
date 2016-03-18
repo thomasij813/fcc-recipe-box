@@ -8,20 +8,32 @@ function NoRecipeMessage(props) {
 
 function IngredientList(props) {
   return (
-    <ul>
-      {props.ingredients.map((ingredient, index) => {
-        return <li key={index}>{ingredient}</li>
-      })}
-    </ul>
+    <div>
+      <h3>Ingredients:</h3>
+      <ul>
+        {props.ingredients.map((ingredient, index) => {
+          return <li key={index}>{ingredient}</li>
+        })}
+      </ul>
+    </div>
+  )
+}
+
+function Instructions(props) {
+  return (
+    <div>
+      <h3>Instructions:</h3>
+      <div className="prewrap">{props.children}</div>
+    </div>
   )
 }
 
 function Recipe(props) {
   return (
     <div>
-      <h1>{props.recipe.title}</h1>
+      <h1 className='recipe-title'>{props.recipe.title}</h1>
       <IngredientList ingredients={props.recipe.ingredients} />
-      <div className="prewrap">{props.recipe.text}</div>
+      <Instructions>{props.recipe.text}</Instructions>
     </div>
   )
 }
@@ -31,8 +43,10 @@ function RecipeView(props) {
     return (
       <div className="wrapper">
         <Recipe recipe={props.recipe} />
-        <button onClick={props.handleEditClick}>Edit</button>
-        <button onClick={props.handleDeleteClick}>Delete</button>
+        <div className="recipe-buttons">
+          <a href="#" onClick={props.handleEditClick} className="button edit">Edit</a>
+          <a href="#" onClick={props.handleDeleteClick} className="button delete">Delete</a>
+        </div>
       </div>
     )
   } else {
