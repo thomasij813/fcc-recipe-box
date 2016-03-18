@@ -10,9 +10,22 @@ form {
 }
 
 form > textarea {
-  margin: 10px 0;
+  margin: 10px 0 20px 0;
   width: 100%;
   min-height: 300px;
+  resize: none;
+}
+form > h3 {
+  margin-bottom: 20px;
+}
+
+textarea, input {
+  border: 1px solid #C2C2C4;
+}
+
+.title {
+  width: 50%;
+  min-width: 200px;
 }
 
 .ingredient {
@@ -32,8 +45,8 @@ form > textarea {
 
 form > button {
   border: none;
+  margin-bottom: 20px;
   @include button($teal);
-  display: block;
 }
 
 form a {
