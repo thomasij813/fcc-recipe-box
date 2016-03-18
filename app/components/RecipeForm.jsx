@@ -77,7 +77,7 @@ class RecipeForm extends React.Component {
         <IngredientList ingredients={this.props.recipe.ingredients}/>
         <h3>Instructions:</h3>
         <textarea name="text" placeholder="Recipe Text" defaultValue={this.props.recipe.text} />
-        <button type="submit">Add Recipe</button>
+        <button type="submit">Save</button>
       </form>
     )
   }
