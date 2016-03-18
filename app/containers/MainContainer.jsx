@@ -3,18 +3,15 @@ import React from 'react'
 import RecipeViewContainer from './RecipeViewContainer'
 import RecipeMenuContainer from './RecipeMenuContainer'
 
+import {recipes} from '../samples/mockData'
+
 require('../public/stylesheets/main-container.scss')
 
 class MainContainer extends React.Component {
   constructor() {
     super()
     this.state ={
-      recipes: [
-        {title: 'Recipe 1', text: 'This is Recipe 1', ingredients: [1, 2, 3]},
-        {title: 'Recipe 2', text: 'This is Recipe 2', ingredients: [1, 2, 3]},
-        {title: 'Recipe 3', text: 'This is Recipe 3', ingredients: [1, 2, 3]},
-        {title: 'Recipe 4', text: 'This is Recipe 4', ingredients: [1, 2, 3]}
-      ],
+      recipes: recipes,
       view: 'recipe',
       activeRecipe: 0
     }

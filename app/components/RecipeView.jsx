@@ -1,23 +1,6 @@
 import React from 'react'
 
-let style = {
-  wrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    padding: '0 25px',
-    width: '100%'
-  },
-  recipe: {
-    flexGrow: 1
-  },
-  button: {
-    marginTop: '10px'
-  },
-  preWrap: {
-    whiteSpace: 'pre-wrap'
-  }
-}
+require('../public/stylesheets/recipe-view.scss')
 
 function NoRecipeMessage(props) {
   return <h1>Click New Recipe to add a recipe.</h1>
@@ -35,10 +18,10 @@ function IngredientList(props) {
 
 function Recipe(props) {
   return (
-    <div style={style.recipe}>
+    <div>
       <h1>{props.recipe.title}</h1>
       <IngredientList ingredients={props.recipe.ingredients} />
-      <div style={style.preWrap}>{props.recipe.text}</div>
+      <div className="prewrap">{props.recipe.text}</div>
     </div>
   )
 }
@@ -46,10 +29,10 @@ function Recipe(props) {
 function RecipeView(props) {
   if (props.recipe) {
     return (
-      <div style={style.wrapper}>
+      <div className="wrapper">
         <Recipe recipe={props.recipe} />
-        <button onClick={props.handleEditClick} style={style.button}>Edit</button>
-        <button onClick={props.handleDeleteClick} style={style.button}>Delete</button>
+        <button onClick={props.handleEditClick}>Edit</button>
+        <button onClick={props.handleDeleteClick}>Delete</button>
       </div>
     )
   } else {
