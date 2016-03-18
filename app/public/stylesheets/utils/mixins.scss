@@ -1,4 +1,9 @@
-@mixin button-color($color) {
+@mixin button($color) {
+  padding: 10px;
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
+  text-decoration: none;
   padding: 10px;
   border: 1px solid $color;
   background: $color;

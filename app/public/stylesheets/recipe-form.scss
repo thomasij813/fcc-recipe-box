@@ -1,3 +1,6 @@
+@import './utils/variables';
+@import './utils/mixins';
+
 form {
   width: 100%;
   max-height: 100vh;
@@ -27,8 +30,27 @@ form > textarea {
   margin: 0;
 }
 
-.ingredient > a {
+form > button {
+  border: none;
+  @include button($teal);
+  display: block;
+}
+
+form a {
+  font-weight: 300;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.add-ingredient {
+  color: $teal;
+}
+
+.delete-ingredient {
   margin-left: 10px;
+  color: $red;
 }
 
 .ingredient-list {

@@ -37,19 +37,11 @@
   margin-bottom: 40px;
 }
 
-.button {
-  padding: 10px;
-  display: inline-block;
-  margin-right: 20px;
-  min-width: 100px;
-  text-align: center;
-  text-decoration: none;
-}
-
 .edit {
-  @include button-color($teal);
+  @include button($teal);
+  margin-right: 20px;
 }
 
 .delete {
-  @include button-color($red);
+  @include button($red);
 }
