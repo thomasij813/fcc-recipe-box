@@ -3,12 +3,19 @@ import React from 'react'
 require('../public/stylesheets/recipe-view.scss')
 
 function NoRecipeMessage(props) {
-  return <h1>Click New Recipe to add a recipe.</h1>
+  return (
+    <div className='no-recipe'>
+      <div className='text-container'>
+        <h1>You have no recipes :(</h1>
+        <p>Click New Recipe to add a recipe to your recipe box.</p>
+      </div>
+    </div>
+  )
 }
 
 function IngredientList(props) {
   return (
-    <div>
+    <div className='ingredients'>
       <h3>Ingredients:</h3>
       <ul>
         {props.ingredients.map((ingredient, index) => {
@@ -21,7 +28,7 @@ function IngredientList(props) {
 
 function Instructions(props) {
   return (
-    <div>
+    <div className='instructions'>
       <h3>Instructions:</h3>
       <div className="prewrap">{props.children}</div>
     </div>
@@ -30,7 +37,7 @@ function Instructions(props) {
 
 function Recipe(props) {
   return (
-    <div>
+    <div className='recipe'>
       <h1 className='recipe-title'>{props.recipe.title}</h1>
       <IngredientList ingredients={props.recipe.ingredients} />
       <Instructions>{props.recipe.text}</Instructions>
@@ -50,7 +57,11 @@ function RecipeView(props) {
       </div>
     )
   } else {
-    return <NoRecipeMessage />
+    return (
+      <div className="wrapper">
+        <NoRecipeMessage />
+      </div>
+    )
   }
 }
 

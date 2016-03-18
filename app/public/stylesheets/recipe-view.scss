@@ -7,6 +7,18 @@
   overflow-y: scroll;
 }
 
+.no-recipe {
+  color: lighten($default-font, 50%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-recipe h1 {
+  margin: 0;
+}
+
 .prewrap {
   white-space: pre-wrap;
 }
@@ -19,6 +31,10 @@
 
 .recipe-buttons {
   margin: 20px 0;
+}
+
+.ingredients, .instructions {
+  margin-bottom: 40px;
 }
 
 .button {
